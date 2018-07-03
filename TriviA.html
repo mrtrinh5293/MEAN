@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Trivia</title>
+    <style>
+        div { background: pink;
+              width: 300px;
+              height: 150px;
+              margin: 10px 10px 10px 10px;
+              
+        }
+        p {
+            padding: 30px 30px 30px 40px;
+        }
+
+    </style>
+    <script>
+$(document).ready(function(){
+
+$("#1 p").click(function(){
+
+    $.get("https://opentdb.com/api.php?amount=5&category=27&difficulty=easy&type=boolean", function (animal) {
+
+        var html_str = "";
+        html_str += "<p>" + animal.results[0].question  + "</p>"
+        html_str += "<input type='radio' value=" + animal.results[0].correct_answer + ">" + animal.results[0].correct_answer + "";
+        html_str += "<input type='radio' value=" + animal.results[0].incorrect_answers[0] + ">" + animal.results[0].incorrect_answers[0] + "";
+        $("#1").html(html_str);
+        console.log(animal.results[0].question)
+    }, "json");
+});
+
+$("#2 p").click(function(){
+
+$.get("https://opentdb.com/api.php?amount=5&category=27&difficulty=easy&type=boolean", function (animal) {
+
+    var html_str = "";
+    html_str += "<p>" + animal.results[0].question  + "</p>"
+    html_str += "<input type='radio' value=" + animal.results[0].correct_answer + ">" + animal.results[0].correct_answer + "";
+    html_str += "<input type='radio' value=" + animal.results[0].incorrect_answers[0] + ">" + animal.results[0].incorrect_answers[0] + "";
+    $("#2").html(html_str);
+    console.log(animal.results[0].question)
+}, "json");
+});
+
+$("#3 p").click(function(){
+
+$.get("https://opentdb.com/api.php?amount=5&category=27&difficulty=easy&type=boolean", function (animal) {
+
+    var html_str = "";
+    html_str += "<p>" + animal.results[0].question  + "</p>"
+    html_str += "<input type='radio' value=" + animal.results[0].correct_answer + ">" + animal.results[0].correct_answer + "";
+    html_str += "<input type='radio' value=" + animal.results[0].incorrect_answers[0] + ">" + animal.results[0].incorrect_answers[0] + "";
+    $("#3").html(html_str);
+    console.log(animal.results[0].question)
+}, "json");
+});
+
+
+});
+        
+        </script>
+</head>
+<body>
+    <h1 style="color:blue; margin: auto;">Trivia Night</h1>
+    <h3>Animal</h3>
+    <div class="col">
+            
+            <div id="1" class="question" style="font-size:100%; "><p>100 points</p></div>
+
+            <div id="2" class="question"><p>200 points</p></div>
+
+            <div id="3" class="question"><p>300 points</p></div>
+
+        </div>
+</body>
+</html>
