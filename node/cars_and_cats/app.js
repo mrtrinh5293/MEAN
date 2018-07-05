@@ -41,6 +41,13 @@ var server = http.createServer(function (request, response){
 			response.write(contents);
 			response.end();
 		});
+    }
+    else if (request.url === "/images/img4.jpg") {
+		fs.readFile('./images/img4.jpg', function (errors, contents) {
+			response.writeHead(200, { 'Content-type': 'image/jpg' });
+			response.write(contents);
+			response.end();
+		});
 	}
     // request didn't match anything:
     else {
