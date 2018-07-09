@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+    
+            var socket = io(); //1
+    
+            $("#submit").click(function () {
+              var data = {
+                name: $("input[name=name]").val(),
+                location: $("select[name=location]").val(),
+                language: $("select[name=language]").val(),
+                comment: $("textarea[name=comment]").val()
+        }
+        socket.emit('send', data);
+      })
+      socket.on("stud", function (user) {
+        console.log(user);
+        $("#info").html("<p>You emitted the following information to the server: Name: " + user.name + ", Location: " + user.location + ", Language: " + user.language + ", Comment: " + user.comment + ".</p><br><p>Your lucky number emitted by the server is " + user.number + ".</p>")
+      });
+    })
+    </script>
+</head>
+<body>
+    
+  <div>
+    <div id="info"></div>
+    <div>
+      <label>Your Name:</label>
+      <input type="text" name="name" placeholder="Your Name">
+    </div>
+    <div>
+      <label>Dojo Location</label>
+      <select name="location">
+        <option>Dallas</option>
+        <option>San Jose</option>
+        <option>Seattle</option>
+        <option>LA</option>
+        <option>Chicago</option>
+      </select>
+    </div>
+    <div>
+      <label>Favorite Language</label>
+      <select name="language">
+        <option>JavaScript</option>
+        <option>Python</option>
+        <option>Ruby</option>
+        <option>HTML</option>
+        <option>CSS</option>
+      </select>
+    </div>
+    <div>
+      <label>Comment</label>
+      <textarea name="comment" rows="3"></textarea>
+      <button type="submit" id="submit">Submit</button>
+    </div>
+  </div>
+</body>
+</html>
