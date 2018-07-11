@@ -12,11 +12,6 @@
 </head>
 
 <body>
-    <% if(messages.registration) { %>
-      <% for (var x of messages.registration) { %>
-       <h3><%= x %></h3>
-      <% } %>
-  <% } %>
   <h1>Log-in</h1>
   <form method='post' action='/session'>
     <input type='text' name='email' placeholder="email">
