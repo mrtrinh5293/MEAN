@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgSwitch } from '@angular/common';
+// import { NgSwitch } from '@angular/common';
 import { PetService } from '../../pet.service';
 import { Router } from '@angular/router'
 

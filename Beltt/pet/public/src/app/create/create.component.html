@@ -1,7 +1,6 @@
 <a href="/">Cancel</a>
 <fieldset>
-<legend>Create New Poll</legend>
-<p>Add your pet and answer options here.</p>
+<legend>Add a new Pet</legend>
 <form (submit)="onSubmit()" #formData='ngForm'>
     <label for="qtext">Pet Name:</label>
     <input type="text" name="qtext"
@@ -39,7 +38,7 @@
     #opt3="ngModel">
 
     <input type="hidden" value="current_user._id">
-    <input type="submit" name="submit" value="Create Poll" [disabled]="formData.invalid">
+    <input type="submit" name="submit" value="Add Pet" [disabled]="formData.invalid">
 </form>
 </fieldset>
 
