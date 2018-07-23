@@ -1,0 +1,15 @@
+<table *ngIf="results.length > 0">
+  <tr>
+    <th>Pet Name</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let pet of resultify(query)">
+    <td>{{pet.qtext}}</td>
+    <td *ngIf="pet.user._id === current_user._id">
+      <a href='' (click)="Delete(pet._id)">AdoptDaPet</a>
+      <a [routerLink]="['/vote', pet._id]">
+        Details
+        </a>
+    </td>
+  </tr>
+</table>

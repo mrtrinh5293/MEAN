@@ -1,0 +1,9 @@
+<h2>LOGIN!</h2>
+<form (submit)="onSubmit()" #formData='ngForm'>
+  <label for="name">Your Name:</label>
+  <input type="text" name="name"
+  required
+  [(ngModel)]="user.name"
+  #name="ngModel">
+  <input type="submit" name="submit" value="Submit" [disabled]="formData.invalid">
+</form>

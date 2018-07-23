@@ -1,0 +1,14 @@
+<p>Welcome, {{current_user.name}}!</p>
+<p>*****  Belt Exam Note From DaDang *****</p>
+<p>Like Button/Option not working</p>
+<p>No Edit Option</p>
+<p>You are handsome instructor, lemme pass dis!!</p>
+
+<h1>PetShelter</h1>
+
+<a [routerLink]="['/create']">Add a new Pet</a>
+<a href='' (click)="LogOut()">Logout</a>
+
+<h3>These Pets are looking for a home</h3>
+
+<app-search-results [query]="search.query" [current_user]="current_user"></app-search-results>

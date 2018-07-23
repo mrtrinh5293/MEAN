@@ -1,0 +1,54 @@
+<a href="/">Cancel</a>
+<fieldset>
+<legend>Create New Poll</legend>
+<p>Add your pet and answer options here.</p>
+<form (submit)="onSubmit()" #formData='ngForm'>
+    <label for="qtext">Pet Name:</label>
+    <input type="text" name="qtext"
+    required
+    minlength="3N"
+    [(ngModel)]="pet.qtext"
+    #qtext="ngModel">
+
+    <label for="opt0">Pet Type:</label>
+    <input type="text" name="opt0"
+    required
+    minlength="3"
+    [(ngModel)]="pet.options[0][0]"
+    #opt0="ngModel">
+
+    <label for="opt1">Description:</label>
+    <input type="text" name="opt1"
+    required
+    minlength="3"
+    [(ngModel)]="pet.options[1][0]"
+    #opt1="ngModel">
+
+    <label for="opt2">Skill 1:</label>
+    <input type="text" name="opt2"
+    required
+    minlength="3"
+    [(ngModel)]="pet.options[2][0]"
+    #opt2="ngModel">
+
+    <label for="opt3">Skill 2:</label>
+    <input type="text" name="opt3"
+    required
+    minlength="3"
+    [(ngModel)]="pet.options[3][0]"
+    #opt3="ngModel">
+
+    <input type="hidden" value="current_user._id">
+    <input type="submit" name="submit" value="Create Poll" [disabled]="formData.invalid">
+</form>
+</fieldset>
+
+<div id="errors">
+    <ul>
+        <li *ngIf="qtext.errors">Pet Name text must be at least 3 characters long.</li>
+        <li *ngIf="opt0.errors">Pet Type text must be at least 3 characters long.</li>
+        <li *ngIf="opt1.errors">Description text must be at least 3 characters long.</li>
+        <li *ngIf="opt2.errors">Skill 1 text must be at least 3 characters long.</li>
+        <li *ngIf="opt3.errors">Skill 2 text must be at least 3 characters long.</li>
+    </ul>
+</div>
